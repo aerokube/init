@@ -2,7 +2,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"io"
 	"log"
@@ -12,17 +11,9 @@ import (
 	"syscall"
 )
 
-func init() {
-	flag.Usage = func() {
-		fmt.Println("Usage: init COMMAND [args...]")
-		flag.PrintDefaults()
-	}
-	flag.Parse()
-}
-
 func main() {
 	if len(os.Args) < 2 {
-		flag.Usage()
+		fmt.Println("Usage:\n\tinit COMMAND [args...]")
 		os.Exit(1)
 	}
 	cmd := exec.Command(os.Args[1], os.Args[2:]...)
