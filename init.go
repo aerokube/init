@@ -13,7 +13,7 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Usage:\n\tinit COMMAND [args...]")
+		fmt.Printf("Usage:\n\t%s COMMAND [args...]\n", os.Args[0])
 		os.Exit(1)
 	}
 	cmd := exec.Command(os.Args[1], os.Args[2:]...)
