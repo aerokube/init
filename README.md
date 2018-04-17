@@ -1,6 +1,6 @@
-# Micro init
+# MicroInit
 
-It runs within container as process with pid 1, translates received signals to child processes and wait until all of them exit.
+MicroInit is a small process to be run within Docker container as init process (with `pid 1`). It translates any received signals to child processes and waits until all of them exit.
 
 Usage:
 
