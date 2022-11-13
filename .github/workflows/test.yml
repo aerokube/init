@@ -24,3 +24,6 @@ jobs:
 
       - name: Test
         run: ci/test.sh
+
+      - name: Build
+        run: ci/build.sh
