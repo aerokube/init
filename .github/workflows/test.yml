@@ -1,9 +1,7 @@
-name: build
+name: test
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
 
 jobs:
   init:
@@ -26,12 +24,3 @@ jobs:
 
       - name: Test
         run: ci/test.sh
-
-      - name: Build
-        run: ci/build.sh
-
-      - name: Latest image
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: ci/docker-push.sh latest
