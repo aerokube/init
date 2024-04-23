@@ -2,7 +2,5 @@
 
 set -e
 
-export GO111MODULE="on"
-go install github.com/mitchellh/gox@latest
-GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-X main.buildStamp=`date -u '+%Y-%m-%d_%I:%M:%S%p'` -X main.gitRevision=`git describe --tags || echo rev:$(git rev-parse HEAD)` -s -w"
-gox -os "linux" -arch "386 amd64" -output "dist/{{.Dir}}_{{.OS}}_{{.Arch}}" -ldflags "-X main.buildStamp=`date -u '+%Y-%m-%d_%I:%M:%S%p'` -X main.gitRevision=`git describe --tags || git rev-parse HEAD` -s -w"
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-s -w" -o init-amd64
+GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -ldflags "-s -w" -o init-arm64
