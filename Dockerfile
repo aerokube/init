@@ -1,3 +1,5 @@
 FROM scratch
 
-COPY init /sbin/init
+ARG TARGETARCH
+
+COPY init-${TARGETARCH} /sbin/init
