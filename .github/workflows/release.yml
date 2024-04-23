@@ -35,11 +35,6 @@ jobs:
       - name: Prepare major version
         run: echo "MAJOR_RELEASE_VERSION=$(echo "$RELEASE_VERSION" | awk -F '.' '{ print $1"."$2; }')" >> $GITHUB_ENV
 
-      - uses: AButler/upload-release-assets@v2.0
-        with:
-          files: 'dist/*'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Release image
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
